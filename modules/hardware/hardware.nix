@@ -8,7 +8,8 @@
         pulseaudio.enable = false;
 
         # graphics
-        graphics = {
+        #when using non-unstable
+        opengl = {
             enable = true;
             extraPackages = with pkgs; [
                 intel-media-driver
@@ -17,5 +18,15 @@
                 libvdpau-va-gl  
             ];
         };
+        # when using unstable
+        # hardware.graphics = {
+        #     enable = true;
+        #     extraPackages = with pkgs; [
+        #         intel-media-driver
+        #         intel-vaapi-driver
+        #         vaapiVdpau
+        #         libvdpau-va-gl
+        #     ];
+        # };
     };
 }
