@@ -10,5 +10,6 @@
         git
         vscode
         bindfs
+        flatpak
     ];
 }

@@ -16,6 +16,7 @@ in
         ./programs.nix
         ./services.nix
         ./security.nix
+        ./xdg.nix
     ];
     system = {
         # This value determines the NixOS release from which the default
