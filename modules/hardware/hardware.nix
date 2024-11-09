@@ -1,4 +1,4 @@
-{config, lib, ... }:
+{config, lib, pkgs, ... }:
 
 {
     hardware = {
@@ -6,5 +6,16 @@
 
         # Enable sound with pipewire.
         pulseaudio.enable = false;
+
+        # graphics
+        graphics = {
+            enable = true;
+            extraPackages = with pkgs; [
+                intel-media-driver
+                intel-vaapi-driver
+                vaapiVdpau
+                libvdpau-va-gl  
+            ];
+        };
     };
 }

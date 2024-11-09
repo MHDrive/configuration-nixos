@@ -11,5 +11,9 @@
         vscode
         bindfs
         flatpak
+        curl
+        devenv
+        direnv
+        postman
     ];
 }

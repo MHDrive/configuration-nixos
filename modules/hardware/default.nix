@@ -12,5 +12,6 @@
         ./nixpkgs.nix
         ./swapDevices.nix
         ./hardware.nix
+        ./environment.nix
     ];
 }
