@@ -10,10 +10,7 @@
             historyFile = "$HOME/.bash_history";
             historyFileSize = 1000000;
             historySize = 10000;
-            historyControl = [
-                "ignoreboth"
-                "erasedups"
-            ];
+            historyControl = [ "ignoredups" "ignorespace" ];
             historyIgnore = [
                 "ls"
                 "cd"

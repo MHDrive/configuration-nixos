@@ -16,4 +16,10 @@
         { device = "/dev/disk/by-uuid/945103f8-b4c5-437b-96c8-97b57cee655f";
         fsType = "ext4";
         };
+        # Membindfs folder /etc/nixos ke dalam folder /home/user/.config/nixos
+    fileSystems."/home/mh/.config/nixos" = { 
+        device = "/etc/nixos";
+        fsType = "fuse.bindfs";
+        options = [ "--force-user=mh" "--force-group=users" ]; # owner dan grup
+    };
 }
