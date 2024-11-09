@@ -15,5 +15,10 @@
         devenv
         direnv
         postman
+        gnome-tweaks
+        gnomeExtensions.weather-oclock
+        gnomeExtensions.dash-to-dock
+        gnomeExtensions.blur-my-shell
+        gnomeExtensions.appindicator
     ];
 }

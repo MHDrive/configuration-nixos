@@ -9,24 +9,24 @@
 
         # graphics
         #when using non-unstable
-        opengl = {
-            enable = true;
-            extraPackages = with pkgs; [
-                intel-media-driver
-                intel-vaapi-driver
-                vaapiVdpau
-                libvdpau-va-gl  
-            ];
-        };
-        # when using unstable
-        # hardware.graphics = {
+        # opengl = {
         #     enable = true;
         #     extraPackages = with pkgs; [
         #         intel-media-driver
         #         intel-vaapi-driver
         #         vaapiVdpau
-        #         libvdpau-va-gl
+        #         libvdpau-va-gl  
         #     ];
         # };
+        # when using unstable
+        graphics = {
+            enable = true;
+            extraPackages = with pkgs; [
+                intel-media-driver
+                intel-vaapi-driver
+                vaapiVdpau
+                libvdpau-va-gl
+            ];
+        };
     };
 }

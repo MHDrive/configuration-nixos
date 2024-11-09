@@ -17,9 +17,10 @@
         fsType = "ext4";
         };
         # Membindfs folder /etc/nixos ke dalam folder /home/user/.config/nixos
-    fileSystems."/home/mh/.config/nixos" = { 
+    fileSystems."/home/mh/.config/nixos" = 
+    { 
         device = "/etc/nixos";
         fsType = "fuse.bindfs";
-        options = [ "--force-user=mh" "--force-group=users" ]; # owner dan grup
+        options = [ "force-user=mh" "force-group=users" ]; # owner dan grup
     };
 }

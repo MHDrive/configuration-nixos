@@ -3,9 +3,12 @@
 
   inputs = {
     # NixOS official package source, using the nixos-23.11 branch here
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-23.url = "github:NixOS/nixpkgs/nixos-23.11";
+    nixpkgs-22.url = "github:NixOS/nixpkgs/nixos-22.11";
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
       # The `follows` keyword in inputs is used for inheritance.
       # Here, `inputs.nixpkgs` of home-manager is kept consistent with
       # the `inputs.nixpkgs` of the current flake,
@@ -14,11 +17,31 @@
     };
   };
 
-  outputs = inputs@{ nixpkgs, home-manager, ... }: {
+  outputs = inputs@{ nixpkgs, nixpkgs-stable, nixpkgs-23, nixpkgs-22, home-manager, ... }: {
     nixosConfigurations = {
       # TODO please change the hostname to your own
-      nixos-mh = nixpkgs.lib.nixosSystem {
+      nixos-mh = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
+        specialArgs = {
+          # To use packages from nixpkgs-stable,
+          # we configure some parameters for it first
+          pkgs-stable = import nixpkgs-stable {
+            # Refer to the `system` parameter from
+            # the outer scope recursively
+            inherit system;
+            # To use Chrome, we need to allow the
+            # installation of non-free software.
+            config.allowUnfree = true;
+          };
+          pkgs-23 = import nixpkgs-23 {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          pkgs-22 = import nixpkgs-22 {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        };
         modules = [
           ./modules
 
