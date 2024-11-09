@@ -20,7 +20,7 @@
       nixos-mh = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
-          ./configuration.nix
+          ./modules
 
           # make home-manager as a module of nixos
           # so that home-manager configuration will be deployed automatically when executing `nixos-rebuild switch`
@@ -30,7 +30,7 @@
             home-manager.useUserPackages = true;
 
             # TODO replace ryan with your own username
-            home-manager.users.mh = import ./home.nix;
+            home-manager.users.mh = import ./home-manager;
 
             # Optionally, use home-manager.extraSpecialArgs to pass arguments to home.nix
           }
