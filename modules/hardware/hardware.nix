@@ -23,37 +23,22 @@
         # when using unstable
         graphics = {
             enable = true;
-            enable32Bit = true;
+            # enable32Bit = true;
             extraPackages = with pkgs; [
-                intel-media-driver          # VAAPI driver for modern Intel GPUs
                 intel-vaapi-driver         # VAAPI driver for older Intel GPUs
                 libva-vdpau-driver        # VDPAU driver for VAAPI
                 libvdpau-va-gl            # VDPAU implementation using OpenGL under the hood
                 nvidia-vaapi-driver       # NVIDIA VAAPI support
-                intel-gmmlib              # Intel Graphics Memory Management Library
-
-                # intel-media-driver
-                # intel-vaapi-driver
-                # vaapiVdpau
-                # libvdpau-va-gl
-
-                # intel-media-driver
-                # intel-compute-runtime
-                # vpl-gpu-rt
+                vpl-gpu-rt
             ];
             # extraPackages32 = with pkgs.driversi686Linux; [
-            #     intel-media-driver
+            #     intel-vaapi-driver
+            #     libva-vdpau-driver  
+            #     libvdpau-va-gl
             # ];
-            extraPackages32 = with pkgs.pkgsi686Linux; [
-                intel-media-driver
-                intel-vaapi-driver
-                libva-vdpau-driver
-                libvdpau-va-gl
-            ];
         };
         nvidia = {
             package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
-            # package = config.boot.kernelPackages.nvidiaPackages.stable;
             modesetting.enable = true;
             # Power management features
             powerManagement = {

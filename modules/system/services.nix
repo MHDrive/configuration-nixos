@@ -35,6 +35,8 @@
             # Enable the GNOME Desktop Environment.
             displayManager = {
                 gdm.enable = true;
+                gdm.wayland = true;
+
             };
             desktopManager = {
                 gnome.enable = true;

@@ -32,6 +32,8 @@
         bat
         php83
         php83Packages.composer
+
+        intel-compute-runtime
     ];
     # Exclude GNOME default apps
     environment.gnome.excludePackages = with pkgs; [
