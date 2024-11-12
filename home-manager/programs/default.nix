@@ -43,5 +43,6 @@
             userName = "Muhammad Hamdi";
             userEmail = "hamdj360@gmail.com";
         };
+        home-manager.enable = true;
     };
 }

@@ -16,7 +16,22 @@
         # firewall.allowedTCPPorts = [ ... ];
         # firewall.allowedUDPPorts = [ ... ];
         # Or disable the firewall altogether.
-        # firewall.enable = false;
+        firewall = {
+            enable = true;
+            allowedTCPPorts = [ 80 443 3306 ]; # Allow HTTP, HTTPS, MariaDB
+            allowedUDPPortRanges = [
+                {
+                    from = 40000;
+                    to = 50000;
+                }
+            ];
+        };
+        # hosts = {
+        #     "127.0.0.1" = [
+        #         "php.local.com"
+        #     ];
+        # };
+        networkmanager.insertNameservers = [ "127.0.0.1" ];  # Gunakan dnsmasq sebagai DNS lokal
 
         # interfaces.eth0.ipv4.addresses = [ {
         #     address = "192.168.1.2";

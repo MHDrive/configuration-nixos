@@ -4,10 +4,12 @@
  # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.mh = {
     isNormalUser = true;
+    # shell = pkgs.bash;
     description = "MH";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "nginx" ];
     packages = with pkgs; [
-    #  thunderbird
+      postman
+      obs-studio
     ];
   };
 }
