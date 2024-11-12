@@ -45,7 +45,8 @@
                 variant = "";
             };
 
-            videoDrivers = [ "intel" "nvidia" ];
+            videoDrivers = [ "nvidia" ];
+            # videoDrivers = [ "intel" "nvidia" ];
         };
         # Enable CUPS to print documents.
         printing.enable = true;
