@@ -2,8 +2,8 @@
 
 {
     hardware = {
-        # enableRedistributableFirmware = true;
-        enableAllFirmware = true;
+        enableRedistributableFirmware = true;
+        # enableAllFirmware = true;
         cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
 
         # Enable sound with pipewire.
@@ -23,15 +23,14 @@
         # when using unstable
         graphics = {
             enable = true;
-            driSupport = true;
-            # enable32Bit = true;
-            driSupport32Bit = true;  # Needed for Steam games
+            enable32Bit = true;
             extraPackages = with pkgs; [
-                intel-media-driver
-                vaapiIntel
-                vaapiVdpau
-                libvdpau-va-gl
-                nvidia-vaapi-driver    # NVIDIA VAAPI support
+                intel-media-driver          # VAAPI driver for modern Intel GPUs
+                intel-vaapi-driver         # VAAPI driver for older Intel GPUs
+                libva-vdpau-driver        # VDPAU driver for VAAPI
+                libvdpau-va-gl            # VDPAU implementation using OpenGL under the hood
+                nvidia-vaapi-driver       # NVIDIA VAAPI support
+                intel-gmmlib              # Intel Graphics Memory Management Library
 
                 # intel-media-driver
                 # intel-vaapi-driver
@@ -45,6 +44,12 @@
             # extraPackages32 = with pkgs.driversi686Linux; [
             #     intel-media-driver
             # ];
+            extraPackages32 = with pkgs.pkgsi686Linux; [
+                intel-media-driver
+                intel-vaapi-driver
+                libva-vdpau-driver
+                libvdpau-va-gl
+            ];
         };
         nvidia = {
             package = config.boot.kernelPackages.nvidiaPackages.legacy_535;
@@ -67,7 +72,6 @@
                 intelBusId = "PCI:0:2:0";  
                 nvidiaBusId = "PCI:1:0:0"; 
             };
-            forceFullCompositionPipeline = true;
         };
     };
 }
