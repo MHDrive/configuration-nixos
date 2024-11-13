@@ -34,6 +34,7 @@
         php83Packages.composer
 
         intel-compute-runtime
+        glxinfo
     ];
     # Exclude GNOME default apps
     environment.gnome.excludePackages = with pkgs; [

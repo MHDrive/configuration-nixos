@@ -35,7 +35,11 @@
             # bashExtra = "";
             shellAliases = {
                 c = "clear";
-                snrs = "sudo nixos-rebuild switch";
+                snrs = "sudo nixos-rebuild switch --show-trace --verbose";
+                snrdb = "sudo nixos-rebuild dry-build --show-trace --verbose";
+                nr = "nix repl --show-trace --verbose";
+                prime-nvidia = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia";
+
             };
         };
         git = {

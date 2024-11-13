@@ -25,6 +25,7 @@
             enable = true;
             # enable32Bit = true;
             extraPackages = with pkgs; [
+                intel-media-driver
                 intel-vaapi-driver         # VAAPI driver for older Intel GPUs
                 libva-vdpau-driver        # VDPAU driver for VAAPI
                 libvdpau-va-gl            # VDPAU implementation using OpenGL under the hood
