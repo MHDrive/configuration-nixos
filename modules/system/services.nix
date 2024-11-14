@@ -111,6 +111,12 @@
         #         '';
         #     };
         # };
+        # nginx = {
+        #     enable = true;
+        #     virtualHosts = builtins.listToAttrs (map (domain: { name = domain; value = mkVHost domain; }) [
+        #         "site1" "site2" "site3"
+        #     ]);
+        # };
 
         nginx = {
             enable = true;
@@ -122,10 +128,46 @@
                 
                 # Direktori root yang dinamis, bisa juga menggunakan symlink jika ada beberapa folder
                 # root = "/home/mh/Developments/Web/$domain";
-                root = "/srv/Web/$domain";
+                root = "/srv/Web/$domain/public";
+                # root = "/srv/Web/$domain";
                 # root = if builtins.pathExists "/srv/$domain/artisan" && builtins.pathExists "/srv/$domain/public" then "/srv/$domain/public" else "/srv/$domain";
                 # root = if builtins.pathExists "/srv/$domain/public" then "/srv/$domain/public" else "/srv/$domain";
-                locations."~ \\.php$" = {
+
+                # extraConfig = ''
+                #     add_header X-Frame-Options "SAMEORIGIN";
+                #     add_header X-Content-Type-Options "nosniff";
+                # '';
+
+                locations."/" = {
+                    index = "index.php index.html index.htm";
+                    tryFiles = "$uri $uri/ /index.php?$query_string";
+                    # tryFiles = "/public$uri /public$uri/ $uri $uri/ /public/index.php?$query_string /index.php?$query_string";
+                    # extraConfig = ''
+                    #     autoindex on;
+                    #     charset utf-8;
+                    # '';
+                    extraConfig = ''
+                        charset utf-8;
+                    '';
+                    # return = "404 /index.php";
+                };
+
+                # Disable access log and suppress not found log for favicon.ico and robots.txt
+                # locations."/favicon.ico" = {
+                #     extraConfig = ''
+                #         access_log off;
+                #         log_not_found off;
+                #     '';
+                # };
+
+                # locations."/robots.txt" = {
+                #     extraConfig = ''
+                #         access_log off;
+                #         log_not_found off;
+                #     '';
+                # };
+                # locations."~ \.php$" = {
+                locations."~ \.php$" = {
                     extraConfig = ''
                         fastcgi_split_path_info ^(.+\\.php)(/.+)$;
                         fastcgi_pass unix:/run/phpfpm/mypool.sock;
@@ -134,23 +176,11 @@
                         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
                     '';
                 };
-                locations."/" = {
-                    index = "index.php index.html index.htm";
-                    # tryFiles = "$uri $uri/ /index.php?$query_string";
-                    tryFiles = "/public$uri /public$uri/ $uri $uri/ /public/index.php?$query_string /index.php?$query_string";
-                    extraConfig = ''
-                        autoindex on;
-                    '';
-                };
+                # locations."~ /\.(?!well-known).*" = {
+                #     extraConfig = "deny all;";
+                # };
             };
         };
-
-        # nginx = {
-        #     enable = true;
-        #     virtualHosts = builtins.listToAttrs (map (domain: { name = domain; value = mkVHost domain; }) [
-        #         "site1" "site2" "site3"
-        #     ]);
-        # };
 
             # Konfigurasi DNSMasq
         dnsmasq = {

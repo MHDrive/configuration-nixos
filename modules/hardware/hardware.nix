@@ -44,7 +44,7 @@
             # Power management features
             powerManagement = {
                 enable = true;
-                finegrained = true;  # Better power management
+                finegrained = false;  # Better power management
             };
             # Only available from driver 515.43.04+
             open = false;
