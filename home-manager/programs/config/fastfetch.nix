@@ -7,106 +7,139 @@
         };
         modules = [
             {
-                type = "host";
-                key = "╭─󰌢";
+                
+                type = "custom";
+                key = "╔══════════════════Hardware════════════════════════════";
                 keyColor = "green";
             }
             {
                 type = "cpu";
-                key = "├─󰻠";
+                key = "->";
                 keyColor = "green";
             }
             {
                 type = "gpu";
-                key = "├─󰍛";
+                key = "->";
                 keyColor = "green";
             }
             {
                 type = "disk";
-                key = "├─";
+                key = "->";
                 keyColor = "green";
             }
             {
                 type = "memory";
-                key = "├─󰑭";
+                key = "->";
                 keyColor = "green";
             }
             {
                 type = "swap";
-                key = "├─󰓡";
+                key = "->";
                 keyColor = "green";
             }
             {
                 type = "display";
-                key = "╰─󰍹";
+                key = "->";
+                keyColor = "green";
+            }
+            {
+                type = "custom";
+                key = "╚══════════════════════════════════════════════════════";
                 keyColor = "green";
             }
 
             "break"
-
+            {
+                
+                type = "custom";
+                key = "╔══════════════════Software════════════════════════════";
+                keyColor = "yellow";
+            }
+            
             {
                 type = "shell";
-                key = "╭─";
+                key = "->";
                 keyColor = "yellow";
             }
             {
                 type = "terminal";
-                key = "├─";
+                key = "->";
                 keyColor = "yellow";
             }
             {
                 type = "terminalfont";
-                key = "├─";
+                key = "->";
                 keyColor = "yellow";
             }
             {
                 type = "de";
-                key = "├─";
+                key = "->";
                 keyColor = "yellow";
             }
             {
                 type = "wm";
-                key = "├─";
+                key = "->";
                 keyColor = "yellow";
             }
             {
                 type = "theme";
-                key = "├─󰉼";
+                key = "->";
                 keyColor = "yellow";
             }
             {
                 type = "icons";
-                key = "╰─󰀻";
+                key = "->";
+                keyColor = "yellow";
+            }
+            {
+                type = "custom";
+                key = "╚══════════════════════════════════════════════════════";
                 keyColor = "yellow";
             }
 
             "break"
 
             {
+                
+                type = "custom";
+                key = "╔══════════════════System══════════════════════════════";
+                keyColor = "blue";
+            }
+            {
+                type = "host";
+                key = "->";
+                keyColor = "blue";
+            }
+            {
                 type = "title";
-                key = "╭─";
+                key = "->";
                 format = "{1}@{2}";
                 keyColor = "blue";
             }
             {
                 type = "os";
-                key = "├─"; # Just get your distro's logo off nerdfonts.com
+                key = "->"; # Just get your distro's logo off nerdfonts.com
                 keyColor = "blue";
             }
             {
                 type = "kernel";
-                key = "├─";
+                key = "->";
                 format = "{1} {2}";
                 keyColor = "blue";
             }
             {
                 type = "packages";
-                key = "├─󰏖";
+                key = "->";
                 keyColor = "blue";
             }
             {
                 type = "uptime";
-                key = "╰─󰅐";
+                key = "->";
+                keyColor = "blue";
+            }
+            {
+                type = "custom";
+                key = "╚══════════════════════════════════════════════════════";
                 keyColor = "blue";
             }
         ];

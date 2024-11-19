@@ -22,6 +22,7 @@
         curl
         devenv
         direnv
+        gnome-shell
         gnome-tweaks
         gnome-shell-extensions
         gnomeExtensions.weather-oclock
@@ -36,6 +37,7 @@
         intel-compute-runtime
         glxinfo
         nodejs_22
+        zoom-us
     ];
     # Exclude GNOME default apps
     environment.gnome.excludePackages = with pkgs; [

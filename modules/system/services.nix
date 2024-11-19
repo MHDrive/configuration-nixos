@@ -182,7 +182,7 @@
             };
         };
 
-            # Konfigurasi DNSMasq
+        # Konfigurasi DNSMasq
         dnsmasq = {
             enable = true;
             settings = {
