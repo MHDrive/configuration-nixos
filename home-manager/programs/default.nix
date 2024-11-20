@@ -99,11 +99,6 @@
                     [│](bold green)  $directory$php$package
                     [└](bold green)$character
                 '';
-                # format = ''
-                #     [┌─\[[mh@nixos-mh](bold blue)\]─>](bold green)$git_branch$git_status
-                #     [│](bold green) $directory$php$package
-                #     [└>](bold green)
-                # '';
                 character = {
                     format = "$symbol ";
                     success_symbol = "[❯](bold green)";
