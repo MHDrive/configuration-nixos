@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.05";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixos-24.11";
     nixpkgs-23.url = "github:NixOS/nixpkgs/nixos-23.11";
     nixpkgs-22.url = "github:NixOS/nixpkgs/nixos-22.11";
     home-manager = {
@@ -32,12 +32,12 @@
         };
         modules = [
           ./modules
-          home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.users.mh = import ./home-manager;
-          }
+          # home-manager.nixosModules.home-manager
+          # {
+          #   home-manager.useGlobalPkgs = true;
+          #   home-manager.useUserPackages = true;
+          #   home-manager.users.mh = import ./home-manager;
+          # }
         ];
       };
     };

@@ -1,7 +1,7 @@
 { ... }:
 
 let
-    version = "24.05";
+    version = "24.11";
 in 
 {
     imports = [
@@ -13,10 +13,11 @@ in
         ./user.nix
         ./nixpkgs.nix
         ./nix.nix
-        ./programs.nix
+        ./programs/default.nix
         ./services.nix
         ./security.nix
         ./xdg.nix
+        ./qt.nix
     ];
     system = {
         # This value determines the NixOS release from which the default

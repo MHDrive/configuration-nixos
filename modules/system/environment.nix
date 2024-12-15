@@ -6,7 +6,7 @@
     # $ nix search wget
     environment.systemPackages = with pkgs; [
     #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    #  wget
+        wget
         # unitilis
         pciutils
         lshw
@@ -22,13 +22,13 @@
         curl
         devenv
         direnv
-        gnome-shell
-        gnome-tweaks
-        gnome-shell-extensions
-        gnomeExtensions.weather-oclock
-        gnomeExtensions.dash-to-dock
-        gnomeExtensions.blur-my-shell
-        gnomeExtensions.appindicator
+        # gnome-shell
+        # gnome-tweaks
+        # gnome-shell-extensions
+        # gnomeExtensions.weather-oclock
+        # gnomeExtensions.dash-to-dock
+        # gnomeExtensions.blur-my-shell
+        # gnomeExtensions.appindicator
         ntfs3g
         bat
         php83
@@ -38,15 +38,22 @@
         glxinfo
         nodejs_22
         zoom-us
+        vlc
+        ciscoPacketTracer8
+
+        libreoffice-qt6-fresh
+
+        kdePackages.kdeplasma-addons
+        kdePackages.qtwebengine
     ];
     # Exclude GNOME default apps
-    environment.gnome.excludePackages = with pkgs; [
-        geary
-        epiphany
-        gnome-music
-    ];
+    # environment.gnome.excludePackages = with pkgs; [
+    #     geary
+    #     epiphany
+    #     gnome-music
+    # ];
 
-    # environment.variables = {
-    #     LIBVA_DRIVER_NAME = "iHD";
-    # };
+    environment.plasma6.excludePackages = with pkgs.kdePackages; [
+        elisa
+    ];
 }
