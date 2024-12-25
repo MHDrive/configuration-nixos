@@ -9,8 +9,11 @@
   shellAliases = {
       c = "clear";
       snrs = "sudo nixos-rebuild switch --show-trace --verbose";
+      snrsf = "sudo nixos-rebuild switch --flake /etc/nixos/#default --show-trace --verbose";
       snrdb = "sudo nixos-rebuild dry-build --show-trace --verbose";
+      snrdbf = "sudo nixos-rebuild dry-build --flake /etc/nixos/#default --show-trace --verbose";
       snrt = "sudo nixos-rebuild test --show-trace --verbose";
+      snrtf = "sudo nixos-rebuild test --flake /etc/nixos/#default --show-trace --verbose";
       nrr = "nixos-rebuild repl --show-trace --verbose";
       nr = "nix repl --show-trace --verbose";
       prime-nvidia = "__NV_PRIME_RENDER_OFFLOAD=1 __GLX_VENDOR_LIBRARY_NAME=nvidia";
@@ -18,7 +21,6 @@
       pa = "php artisan";
   };
   shellInit = ''
-  # Banner
       function show_banner() {
           local color_red="\e[31m"
           local color_green="\e[32m"

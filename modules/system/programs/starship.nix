@@ -20,12 +20,11 @@
       hostname = {
           ssh_only = false;
           format = "[$hostname]($style)";
-          style = "bold blue";
           disabled = false;
       };
       username = {
           format = "[$user]($style)";
-          style_root = "bold green";
+          style_root = "bold red";
           style_user = "bold blue";
           disabled = false;
           show_always = true;

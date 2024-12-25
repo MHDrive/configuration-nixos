@@ -6,17 +6,19 @@
             # Enable the X11 windowing system.
             enable = true;
             # Enable the GNOME Desktop Environment.
-            displayManager = {
+            # displayManager = {
                 # gdm.enable = true;
                 # gdm.wayland = true;
-                lightdm.greeters.gtk.theme = {
-                    name = "Breeze-Dark";
-                    package = pkgs.kdePackages.breeze-gtk;
-                };
+                # lightdm.greeters.gtk.theme = {
+                #     name = "Breeze-Dark";
+                #     package = pkgs.kdePackages.breeze-gtk;
+                # };
 
-            };
+            # };
             # desktopManager = {
-            #     gnome.enable = true;
+                # gnome.enable = true;
+                # xterm.enable = false;
+                # xfce.enable = true;
             # };
             # Configure keymap in X11
             xkb = {
@@ -32,6 +34,7 @@
                 enable = true;
                 wayland.enable = true;
             };
+            # defaultSession = "xfce";
         };
         desktopManager = {
             plasma6.enable = true;
@@ -66,12 +69,12 @@
             virtualHosts."~^(?<domain>.+)\\.test$" = {
                 listen = [{ addr = "127.0.0.1"; port = 80; }];
                 serverName = "~^(?<domain>.+)\\.test$";
-                root = "/srv/Web/$domain";
-                # root = "/srv/Web/$domain/public";
+                # root = "/srv/Web/$domain";
+                root = "/srv/Web/$domain/public";
                 locations."/" = {
                     index = "index.php index.html index.htm";
-                    # tryFiles = "$uri $uri/ /index.php?$query_string";
-                    tryFiles = "public/$uri /public/$uri/ $uri $uri/ public/index.php?$query_string /index.php?$query_string";
+                    tryFiles = "$uri $uri/ /index.php?$query_string";
+                    # tryFiles = "public/$uri /public/$uri/ $uri $uri/ public/index.php?$query_string /index.php?$query_string";
                     # extraConfig = ''
                     #     autoindex on;
                     #     charset utf-8;

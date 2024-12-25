@@ -14,7 +14,7 @@
 
   outputs = inputs@{ nixpkgs, nixpkgs-stable, nixpkgs-23, nixpkgs-22, home-manager, ... }: {
     nixosConfigurations = {
-      nixos-mh = nixpkgs.lib.nixosSystem rec {
+      default = nixpkgs.lib.nixosSystem rec {
         system = "x86_64-linux";
         specialArgs = {
           pkgs-stable = import nixpkgs-stable {

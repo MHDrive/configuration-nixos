@@ -42,9 +42,16 @@
         ciscoPacketTracer8
 
         libreoffice-qt6-fresh
-
+        #kde-plasma6
         kdePackages.kdeplasma-addons
         kdePackages.qtwebengine
+
+        pcsx2
+        jstest-gtk
+        usbutils
+
+        # libva
+        # libvdpau
     ];
     # Exclude GNOME default apps
     # environment.gnome.excludePackages = with pkgs; [
